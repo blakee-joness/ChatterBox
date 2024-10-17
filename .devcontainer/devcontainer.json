@@ -1,6 +1,7 @@
 {
     "name": "Dev Container",
     "image": "mcr.microsoft.com/devcontainers/typescript-node:0-20",
+    "workspaceFolder": "/workspaces/ChatterBox",
     "features": {
       "ghcr.io/devcontainers/features/node:1": {},
       "ghcr.io/devcontainers/features/git:1": {},
@@ -8,14 +9,14 @@
       "ghcr.io/guiyomh/features/vim:0": {},
       "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
         "packages": "iputils-ping,dnsutils,xmlsec1"
-      },
+      }
     },
     "customizations": {
       "vscode": {
         "extensions": []
       }
     },
-    "postCreateCommand": "npm install",
+    "postCreateCommand": "pnpm install --prefix ${containerWorkspaceFolder}/client && pnpm install --prefix ${containerWorkspaceFolder}/server",
     "portsAttributes": {},
     "forwardPorts": [],
     // "remoteUser": "vscode"
